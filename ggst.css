@@ -1,0 +1,76 @@
+:root {
+    background: #22242a;
+}
+
+body {
+    display: flex;
+}
+
+.sidebar {
+    max-width: 15%;
+    font-family: "Anton", sans-serif;
+    background: #1C1F26;
+    padding: 20px 20px;
+    padding-right: 50px;
+    font-size: larger;
+}
+
+.note {
+    font-size: 0.8em;
+}
+
+.border {
+    background: #cdcdcd5a;
+    width: 2px;
+}
+
+.main {
+    padding: 15px;
+}
+
+.quote {
+    font-family: "Anton", sans-serif;
+    color: #a88620;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #a88620;
+}
+
+.character {
+    margin-top: 80px;
+}
+
+.name {
+    font-family: "Anton", sans-serif;
+    color: #c53c41;
+    text-transform: uppercase;
+}
+
+p {
+    color: #afb2b6;
+    font-size: 1.2em;
+    font-family: "Inter", sans-serif;
+}
+
+ul {
+    color: #afb2b6;
+    list-style-type: none;
+    padding: 0px;
+    margin-bottom: 100px;
+}
+
+img {
+    width: 40%;
+    margin-left: 40px;
+}
+
+button {
+    background: #1C1F26;
+    color: #ffffffc3;
+    font-size: 1em;
+    font-family: "Anton", sans-serif;
+    border: none;
+}
