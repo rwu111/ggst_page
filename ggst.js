@@ -13,6 +13,7 @@ let currentCharacter = null;
 // Music Player Variables
 let currentSongIndex = 0;
 let audio = new Audio();
+let cover = document.getElementById("songCover");
 let isPlaying = false;
 let syncEnabled = true;
 
@@ -21,22 +22,26 @@ const songs = [
     {
         name: "Find Your One Way",
         file: "Songs/findyouroneway.mp3",
-        character: "sectionSol"
+        character: "sectionSol",
+        cover: "Images/solSongCover.jpg"
     },
     {
         name: "The Roar of the Spark",
         file: "Songs/theroarofthespark.mp3",
-        character: "sectionKy"
+        character: "sectionKy",
+        cover: "Images/kySongCover.jpg"
     },
     {
         name: "Drift",
         file: "Songs/drift.mp3",
-        character: "sectionHappy"
+        character: "sectionHappy",
+        cover: "Images/happySongCover.jpg"
     },
     {
         name: "Hellfire",
         file: "Songs/hellfire.mp3",
-        character: "sectionLeo"
+        character: "sectionLeo",
+        cover: "Images/leoSongCover.jpg"
     }
 ];
 
@@ -57,6 +62,7 @@ const syncToggle = document.getElementById("syncToggle");
 function loadSong(index) {
     const song = songs[index];
     audio.src = song.file;
+    cover.src = song.cover;
     songNameEl.textContent = song.name;
 
     audio.addEventListener("loadedmetadata", () => {

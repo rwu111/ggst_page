@@ -128,10 +128,17 @@ button {
     height: 100%;
     border-radius: 50%;
     background: radial-gradient(circle at 35% 35%, #333, #111);
-    background-image: url("Images/leoSongCover.png");
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     position: relative;
     transition: transform 0.3s ease;
+}
+
+.vinyl-disc img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0;
 }
 
 .vinyl-disc::before {
@@ -398,8 +405,8 @@ input:checked+.slider:before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
     z-index: 2;
