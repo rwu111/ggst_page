@@ -41,6 +41,39 @@ h2 {
 
 .character {
     margin-top: 80px;
+    padding-left: 100px;
+}
+
+.character.entering {
+    animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(200px) scale(0.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(100px) scale(1);
+    }
+}
+
+.character.exiting {
+    animation: slideOut 1s ease-in forwards;
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(100px) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(1) scale(0.7);
+    }
 }
 
 .name {
