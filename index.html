@@ -34,6 +34,39 @@
             Guilty Gear -Strive (Original Soundtrack) - Necessary Discrepancy (2)
         </p>
         <p class="note">Please check them out!</p>
+
+        <!-- Music Player -->
+        <div class="music-player">
+            <div class="vinyl-container">
+                <div class="vinyl-disc"></div>
+                <div class="character-art">
+                    <!-- Space for character artwork - add images here later -->
+                    <!-- <img src="path-to-character-art.jpg" alt="Character"> -->
+                </div>
+                <div class="music-popup">
+                    <div class="song-name" id="songName">Find Your One Way</div>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="time-info">
+                        <span id="currentTime">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                    <div class="controls">
+                        <button id="prevBtn">⏮</button>
+                        <button id="playPauseBtn">▶</button>
+                        <button id="nextBtn">⏭</button>
+                    </div>
+                    <div class="toggle-container">
+                        <label for="syncToggle">Sync music with character</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="syncToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="border"></div>
     <div class="main">

@@ -106,3 +106,240 @@ button {
     font-family: "Anton", sans-serif;
     border: none;
 }
+
+/* Music Player Styles */
+.music-player {
+    position: relative;
+    margin-top: auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.vinyl-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.vinyl-disc {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #333, #111);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.vinyl-disc::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #a88620;
+    box-shadow: 0 0 0 3px #1C1F26, 0 0 0 5px #a88620;
+}
+
+.vinyl-disc::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 8px);
+}
+
+.vinyl-disc.spinning {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Popup Window */
+.music-popup {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 15px;
+    width: 280px;
+    background: #1C1F26;
+    border: 2px solid #a88620;
+    border-radius: 10px;
+    padding: 15px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.vinyl-container:hover .music-popup {
+    display: block;
+    opacity: 1;
+}
+
+.music-popup::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #a88620 transparent transparent transparent;
+}
+
+.song-name {
+    color: #a88620;
+    font-family: "Anton", sans-serif;
+    font-size: 0.9em;
+    text-align: center;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progress-container {
+    background: #2a2e38;
+    border-radius: 5px;
+    height: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.progress-bar {
+    background: #a88620;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    color: #afb2b6;
+    font-family: "Inter", sans-serif;
+    font-size: 0.7em;
+    margin-bottom: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.controls button {
+    background: none;
+    color: #afb2b6;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.controls button:hover {
+    color: #a88620;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #2a2e38;
+}
+
+.toggle-container label {
+    color: #afb2b6;
+    font-family: "Inter", sans-serif;
+    font-size: 0.75em;
+    cursor: pointer;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2a2e38;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #afb2b6;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #a88620;
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+    background-color: white;
+}
+
+.character-art {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.character-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
