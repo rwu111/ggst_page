@@ -44,13 +44,13 @@ h2 {
 }
 
 .character.entering {
-    animation: slideIn 1s ease-in forwards;
+    animation: slideIn 0.3s ease-in forwards;
 }
 
 @keyframes slideIn {
     0% {
         opacity: 0;
-        transform: translateX(100px) scale(0.7);
+        transform: translateX(50px) scale(0.7);
     }
 
     100% {
@@ -60,7 +60,7 @@ h2 {
 }
 
 .character.exiting {
-    animation: slideOut 1s ease-in forwards;
+    animation: slideOut 0.5s ease-in forwards;
 }
 
 @keyframes slideOut {
@@ -118,8 +118,8 @@ button {
 
 .vinyl-container {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 200px;
     cursor: pointer;
 }
 
@@ -128,6 +128,7 @@ button {
     height: 100%;
     border-radius: 50%;
     background: radial-gradient(circle at 35% 35%, #333, #111);
+    background-image: url("Images/leoSongCover.png");
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     position: relative;
     transition: transform 0.3s ease;
@@ -256,6 +257,74 @@ button {
     cursor: pointer;
     padding: 5px;
     transition: color 0.2s ease;
+}
+
+#prevBtn {
+    background-image: url("Images/previousBtn.svg");
+    width: 80px;
+    height: 80px;
+    transform: scale(0.5);
+}
+
+#nextBtn {
+    background-image: url("Images/nextBtn.svg");
+    width: 80px;
+    height: 80px;
+    transform: scale(0.5);
+}
+
+#playBtn {
+    background-image: url("Images/playBtn.svg");
+    width: 80px;
+    height: 80px;
+    transform: scale(0.5);
+}
+
+#pauseBtn {
+    background-image: url("Images/pauseBtn.svg");
+    width: 80px;
+    height: 80px;
+    transform: scale(0.5);
+}
+
+.controls button.appear {
+    animation: musicCtrlBtnAppear 0.5s linear forwards;
+}
+
+.controls button.disappear {
+    animation: musicCtrlBtnDisappear 0.5s linear forwards;
+}
+
+@keyframes musicCtrlBtnAppear {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
+        transform: rotate(270deg) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes musicCtrlBtnDisappear {
+    0% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+
+    70% {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .controls button:hover {

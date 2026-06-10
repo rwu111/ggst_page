@@ -42,7 +42,8 @@ const songs = [
 
 // DOM Elements for Music Player
 const vinylDisc = document.querySelector(".vinyl-disc");
-const playPauseBtn = document.getElementById("playPauseBtn");
+const playBtn = document.getElementById("playBtn");
+const pauseBtn = document.getElementById("pauseBtn");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const progressBar = document.querySelector(".progress-bar");
@@ -67,17 +68,29 @@ function loadSong(index) {
     }
 }
 
-function playSong() {
+async function playSong() {
     audio.play();
     isPlaying = true;
-    playPauseBtn.textContent = "⏸";
+    playBtn.classList.add("disappear");
+    pauseBtn.classList.add("appear");
+    await new Promise(r => setTimeout(r, 500));
+    playBtn.classList.remove("disappear");
+    pauseBtn.classList.remove("appear");
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "inline";
     vinylDisc.classList.add("spinning");
 }
 
-function pauseSong() {
+async function pauseSong() {
     audio.pause();
     isPlaying = false;
-    playPauseBtn.textContent = "▶";
+    pauseBtn.classList.add("disappear");
+    playBtn.classList.add("appear");
+    await new Promise(r => setTimeout(r, 500));
+    pauseBtn.classList.remove("disappear");
+    playBtn.classList.remove("appear");
+    pauseBtn.style.display = "none";
+    playBtn.style.display = "inline";
     vinylDisc.classList.remove("spinning");
 }
 
@@ -191,7 +204,8 @@ function toggleSync() {
 }
 
 // Event Listeners for Music Player
-playPauseBtn.addEventListener("click", togglePlayPause);
+playBtn.addEventListener("click", togglePlayPause);
+pauseBtn.addEventListener("click", togglePlayPause);
 prevBtn.addEventListener("click", prevSong);
 nextBtn.addEventListener("click", nextSong);
 progressContainer.addEventListener("click", setProgress);
@@ -203,6 +217,9 @@ function main() {
         c.style.display = (i === 0) ? "block" : "none";
     });
     currentCharacter = characters[0];
+
+    playBtn.style.display = "inline";
+    pauseBtn.style.display = "none";
 
     // Load first song but don't autoplay
     currentSongIndex = 0;
