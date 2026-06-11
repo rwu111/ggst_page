@@ -8,7 +8,7 @@ if (kyBtn) { kyBtn.addEventListener("click", () => switchCharacter("sectionKy"))
 if (happyBtn) { happyBtn.addEventListener("click", () => switchCharacter("sectionHappy")); }
 if (leoBtn) { leoBtn.addEventListener("click", () => switchCharacter("sectionLeo")); }
 
-let currentCharacter = null;
+let currentCharacter: HTMLElement | null = null;
 
 // Music Player Variables
 let currentSongIndex = 0;
@@ -59,7 +59,7 @@ const songNameEl = document.getElementById("songName");
 const syncToggle = document.getElementById("syncToggle");
 
 // Music Player Functions
-function loadSong(index) {
+function loadSong(index: number) {
     const song = songs[index];
     audio.src = song.file;
     cover.src = song.cover;
@@ -160,7 +160,7 @@ audio.addEventListener("ended", () => {
 audio.addEventListener("timeupdate", updateProgress);
 
 // Character switching with music sync
-async function switchCharacter(scrollTo) {
+async function switchCharacter(scrollTo: string) {
     let targetCharacter = document.getElementById(scrollTo);
     await changeSection(targetCharacter);
 
@@ -222,7 +222,7 @@ function main() {
     characters.forEach((c, i) => {
         c.style.display = (i === 0) ? "block" : "none";
     });
-    currentCharacter = characters[0];
+    currentCharacter = characters[0] as HTMLElement;
 
     playBtn.style.display = "inline";
     pauseBtn.style.display = "none";
