@@ -245,3 +245,125 @@ function main() {
     loadSong(0);
 }
 document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", main) : main();
+
+// ========== TABLET COMPATIBILITY ADDITIONS ==========
+// Add this to the end of your ggst.js file
+
+// Handle touch events for music popup on tablets
+function setupTouchPopup() {
+    const vinylContainer = document.querySelector('.vinyl-container');
+    const musicPopup = document.querySelector('.music-popup');
+    let popupTimeout;
+
+    if (vinylContainer && musicPopup && isTouchDevice()) {
+        vinylContainer.addEventListener('click', (e) => {
+            e.stopPropagation();
+            musicPopup.classList.toggle('active');
+
+            // Clear existing timeout
+            if (popupTimeout) clearTimeout(popupTimeout);
+
+            // Auto-hide popup after 3 seconds
+            if (musicPopup.classList.contains('active')) {
+                popupTimeout = setTimeout(() => {
+                    musicPopup.classList.remove('active');
+                }, 3000);
+            }
+        });
+
+        // Close popup when clicking elsewhere
+        document.addEventListener('click', (e) => {
+            if (!vinylContainer.contains(e.target)) {
+                musicPopup.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Detect touch device
+function isTouchDevice() {
+    return ('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0) ||
+        (navigator.msMaxTouchPoints > 0);
+}
+
+// Handle orientation change specifically
+function handleTabletOrientationChange() {
+    const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1024;
+
+    if (!isTablet) return;
+
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+
+    if (isPortrait) {
+        console.log("Tablet Portrait Mode - Optimizing for vertical use");
+        document.body.classList.add('tablet-portrait');
+        document.body.classList.remove('tablet-landscape');
+
+        // Adjust progress bar for easier touch
+        const progressContainer = document.querySelector('.progress-container');
+        if (progressContainer) {
+            progressContainer.style.height = '8px'; // Larger touch target
+        }
+
+    } else if (isLandscape) {
+        console.log("Tablet Landscape Mode - Optimizing for horizontal use");
+        document.body.classList.add('tablet-landscape');
+        document.body.classList.remove('tablet-portrait');
+
+        // Reset progress bar height
+        const progressContainer = document.querySelector('.progress-container');
+        if (progressContainer) {
+            progressContainer.style.height = '5px';
+        }
+    }
+
+    // Redraw any canvas or complex elements if needed
+    if (window.vinylDisc && document.querySelector('.vinyl-disc.spinning')) {
+        // Ensure animation continues smoothly
+        vinylDisc.style.animation = 'none';
+        vinylDisc.offsetHeight; // Force reflow
+        vinylDisc.style.animation = 'spin 2s linear infinite';
+    }
+}
+
+// Make progress bar more touch-friendly on tablets
+function setupTouchProgress() {
+    const progressContainer = document.querySelector('.progress-container');
+    if (progressContainer && isTouchDevice()) {
+        progressContainer.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const rect = progressContainer.getBoundingClientRect();
+            const touch = e.touches[0];
+            const clickX = touch.clientX - rect.left;
+            const width = rect.width;
+            const duration = audio.duration;
+            if (duration) {
+                audio.currentTime = (clickX / width) * duration;
+            }
+        });
+    }
+}
+
+// Initialize tablet compatibility
+function initTabletCompatibility() {
+    setupTouchPopup();
+    setupTouchProgress();
+    handleTabletOrientationChange();
+
+    // Listen for orientation changes
+    window.addEventListener('orientationchange', () => {
+        setTimeout(handleTabletOrientationChange, 50);
+    });
+    window.addEventListener('resize', () => {
+        setTimeout(handleTabletOrientationChange, 100);
+    });
+}
+
+// Call this after DOM is ready
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTabletCompatibility);
+} else {
+    initTabletCompatibility();
+}
