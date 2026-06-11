@@ -62,11 +62,11 @@ const syncToggle = document.getElementById("syncToggle");
 function loadSong(index: number) {
     const song = songs[index];
     audio.src = song.file;
-    cover.src = song.cover;
-    songNameEl.textContent = song.name;
+    if (cover instanceof Image) cover.src = song.cover;
+    if (songNameEl) songNameEl.textContent = song.name;
 
     audio.addEventListener("loadedmetadata", () => {
-        durationEl.textContent = formatTime(audio.duration);
+        if (durationEl) durationEl.textContent = formatTime(audio.duration);
     });
 
     if (isPlaying) {
@@ -77,6 +77,9 @@ function loadSong(index: number) {
 async function playSong() {
     audio.play();
     isPlaying = true;
+    if (!playBtn) return;
+    if (!pauseBtn) return;
+    if (!vinylDisc) return;
     playBtn.classList.add("disappear");
     pauseBtn.classList.add("appear");
     await new Promise(r => setTimeout(r, 500));
@@ -90,6 +93,8 @@ async function playSong() {
 async function pauseSong() {
     audio.pause();
     isPlaying = false;
+    if (!pauseBtn) return;
+    if (!playBtn) return;
     pauseBtn.classList.add("disappear");
     playBtn.classList.add("appear");
     await new Promise(r => setTimeout(r, 500));
@@ -97,7 +102,7 @@ async function pauseSong() {
     playBtn.classList.remove("appear");
     pauseBtn.style.display = "none";
     playBtn.style.display = "inline";
-    vinylDisc.classList.remove("spinning");
+    if (vinylDisc) vinylDisc.classList.remove("spinning");
 }
 
 function togglePlayPause() {
@@ -130,7 +135,7 @@ function nextSong() {
     }
 }
 
-function formatTime(seconds) {
+function formatTime(seconds: number) {
     if (isNaN(seconds)) return "0:00";
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
@@ -140,13 +145,14 @@ function formatTime(seconds) {
 function updateProgress() {
     if (audio.duration) {
         const progressPercent = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = `${progressPercent}%`;
-        currentTimeEl.textContent = formatTime(audio.currentTime);
+        if (progressBar instanceof HTMLElement) progressBar.style.width = `${progressPercent}%`;
+        if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
     }
 }
 
-function setProgress(e) {
-    const width = progressContainer.clientWidth;
+function setProgress(e: MouseEvent) {
+    if (!progressContainer) return;
+    const width: number = progressContainer.clientWidth;
     const clickX = e.offsetX;
     const duration = audio.duration;
     audio.currentTime = (clickX / width) * duration;
@@ -162,7 +168,7 @@ audio.addEventListener("timeupdate", updateProgress);
 // Character switching with music sync
 async function switchCharacter(scrollTo: string) {
     let targetCharacter = document.getElementById(scrollTo);
-    await changeSection(targetCharacter);
+    if (targetCharacter) await changeSection(targetCharacter);
 
     // Sync music if toggle is enabled
     if (syncEnabled) {
@@ -183,8 +189,8 @@ async function switchCharacter(scrollTo: string) {
     }
 }
 
-async function changeSection(targetCharacter) {
-    if (currentCharacter == targetCharacter) {
+async function changeSection(targetCharacter: HTMLElement) {
+    if (currentCharacter == (targetCharacter || null)) {
         return;
     }
 
@@ -206,26 +212,26 @@ async function changeSection(targetCharacter) {
 
 // Toggle sync function
 function toggleSync() {
-    syncEnabled = syncToggle.checked;
+    if (syncToggle instanceof HTMLInputElement) syncEnabled = syncToggle.checked;
 }
 
 // Event Listeners for Music Player
-playBtn.addEventListener("click", togglePlayPause);
-pauseBtn.addEventListener("click", togglePlayPause);
-prevBtn.addEventListener("click", prevSong);
-nextBtn.addEventListener("click", nextSong);
-progressContainer.addEventListener("click", setProgress);
-syncToggle.addEventListener("change", toggleSync);
+if (playBtn) playBtn.addEventListener("click", togglePlayPause);
+if (pauseBtn) pauseBtn.addEventListener("click", togglePlayPause);
+if (prevBtn) prevBtn.addEventListener("click", prevSong);
+if (nextBtn) nextBtn.addEventListener("click", nextSong);
+if (progressContainer) progressContainer.addEventListener("click", (e) => { setProgress(e as MouseEvent) });
+if (syncToggle) syncToggle.addEventListener("change", toggleSync);
 
 function main() {
     const characters = document.querySelectorAll(".character");
     characters.forEach((c, i) => {
-        c.style.display = (i === 0) ? "block" : "none";
+        if (c instanceof HTMLElement) c.style.display = (i === 0) ? "block" : "none";
     });
     currentCharacter = characters[0] as HTMLElement;
 
-    playBtn.style.display = "inline";
-    pauseBtn.style.display = "none";
+    if (playBtn) playBtn.style.display = "inline";
+    if (pauseBtn) pauseBtn.style.display = "none";
 
     // Load first song but don't autoplay
     currentSongIndex = 0;
