@@ -10,13 +10,23 @@ body {
     max-width: 15%;
     font-family: "Anton", sans-serif;
     background: #1C1F26;
-    padding: 20px 20px;
-    padding-right: 50px;
+    padding: 2% 2%;
+    padding-right: 4%;
     font-size: larger;
 }
 
 .note {
     font-size: 0.8em;
+    display: block;
+    color: #afb2b6;
+}
+
+em {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    font-size: 1rem;
+    font-style: italic;
 }
 
 .border {
@@ -91,7 +101,7 @@ ul {
     color: #afb2b6;
     list-style-type: none;
     padding: 0px;
-    margin-bottom: 100px;
+    margin-bottom: 30%;
 }
 
 img {
@@ -118,8 +128,8 @@ button {
 
 .vinyl-container {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 90%;
+    aspect-ratio: 1/1;
     cursor: pointer;
 }
 
