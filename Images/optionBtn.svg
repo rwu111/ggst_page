@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Rounded black button background -->
+  <rect x="0" y="0" width="80" height="80" rx="20" fill="#22242a"/>
+
+  <!-- Three horizontal bars (stacked) -->
+  <rect x="18" y="28" width="44" height="6" rx="3" fill="#a28539"/>
+  <rect x="18" y="37" width="44" height="6" rx="3" fill="#a28539"/>
+  <rect x="18" y="46" width="44" height="6" rx="3" fill="#a28539"/>
+</svg>

@@ -9,172 +9,189 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <h2>Characters and Theme Songs</h2>
-        <ul>
-            <li><button id="solBtn">Sol
-                    Badguy</button>
-            </li>
-            <li><button id="kyBtn">Ky
-                    Kiske</button>
-            </li>
-            <li><button id="happyBtn">Happy
-                    Chaos</button>
-            </li>
-            <li><button id="leoBtn">Leo
-                    Whitefang</button>
-            </li>
-        </ul>
-        <p class="note">
-            All music chosen from the following albums:
-            <em class="albumName">
-                Guilty Gear -Strive (Original Soundtrack) - Necessary Discrepancy (1)
-            </em>
-            <em class="albumName">
-                Guilty Gear -Strive (Original Soundtrack) - Necessary Discrepancy (2)
-            </em>
-            Please check them out!
-        </p>
+    <div class="computerElementsContainer" id="computerElementsContainer">
+        <div class="sidebar">
+            <h2>Characters and Theme Songs</h2>
+            <ul>
+                <li><button id="solBtn">Sol
+                        Badguy</button>
+                </li>
+                <li><button id="kyBtn">Ky
+                        Kiske</button>
+                </li>
+                <li><button id="happyBtn">Happy
+                        Chaos</button>
+                </li>
+                <li><button id="leoBtn">Leo
+                        Whitefang</button>
+                </li>
+            </ul>
+            <p class="note">
+                All music chosen from the following albums:
+                <em class="albumName">
+                    Guilty Gear -Strive (Original Soundtrack) - Necessary Discrepancy (1)
+                </em>
+                <em class="albumName">
+                    Guilty Gear -Strive (Original Soundtrack) - Necessary Discrepancy (2)
+                </em>
+                Please check them out!
+            </p>
 
-        <!-- Music Player -->
-        <div class="music-player">
-            <div class="vinyl-container">
-                <div class="vinyl-disc">
-                    <img id="songCover" src="Images/ggstCover.png" alt="Cover of Guilty Gear -Strive-">
+            <!-- Music Player -->
+            <div class="music-player">
+                <div class="vinyl-container">
+                    <div class="vinyl-disc">
+                        <img id="songCover" src="Images/ggstCover.png" alt="Cover of Guilty Gear -Strive-">
+                    </div>
+                    <div class="music-popup">
+                        <div class="song-name" id="songName">Find Your One Way</div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="time-info">
+                            <span id="currentTime">0:00</span>
+                            <span id="duration">0:00</span>
+                        </div>
+                        <div class="controls">
+                            <button id="prevBtn"></button>
+                            <button id="playBtn"></button>
+                            <button id="pauseBtn"></button>
+                            <button id="nextBtn"></button>
+                        </div>
+                        <div class="toggle-container">
+                            <label for="syncToggle">Sync music with character</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="syncToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="music-popup">
-                    <div class="song-name" id="songName">Find Your One Way</div>
-                    <div class="progress-container">
-                        <div class="progress-bar"></div>
-                    </div>
-                    <div class="time-info">
-                        <span id="currentTime">0:00</span>
-                        <span id="duration">0:00</span>
-                    </div>
-                    <div class="controls">
-                        <button id="prevBtn"></button>
-                        <button id="playBtn"></button>
-                        <button id="pauseBtn"></button>
-                        <button id="nextBtn"></button>
-                    </div>
-                    <div class="toggle-container">
-                        <label for="syncToggle">Sync music with character</label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="syncToggle" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
+            </div>
+        </div>
+        <div class="border"></div>
+        <div class="main">
+            <div class="quote">
+                <h2>
+                    "Mankind knew that they cannot change society, so instead of reflecting on themselves, they blamed
+                    the
+                    Beasts."
+                </h2>
+            </div>
+            <div class="character" id="sectionSol">
+                <div class="character-inner">
+                    <h1 class="name">Sol Badguy</h1>
+                    <img src="Images/solBadguy.png" alt="Sol Badguy">
+                    <p>
+                        Sol Badguy is the protagonist of the Guilty Gear series and Ky Kiske's rival. He is an aloof and
+                        brash
+                        bounty hunter of
+                        immense skill on a quest to find and eliminate all Gears and their creator, That Man. For a
+                        short
+                        time,
+                        Sol
+                        was also a
+                        member of the Sacred Order of Holy Knights during the Crusades, known as "Order-Sol".
+                    </p>
+                    <p>
+                        Sol has an Awakened form, who is an unlockable boss character in Guilty Gear Isuka only.
+                    </p>
+                </div>
+            </div>
+            <div class="character" id="sectionKy">
+                <div class="character-inner">
+                    <h1 class="name">Ky Kiske</h1>
+                    <img src="Images/kyKiske.jpg" alt="Ky Kiske">
+                    <p>
+                        Ky Kiske is the deuteragonist of the Guilty Gear series and Sol Badguy's rival. A former member
+                        of
+                        the
+                        Sacred Order of
+                        Holy Knights during the Crusades, Ky is a charismatic swordsman who possesses a strong sense of
+                        justice
+                        and
+                        piety, which
+                        sustain and guide him through all manner of shaking uncertainties.
+                    </p>
+                    <p>
+                        Ky has an Awakened form, who is an unlockable boss character in Guilty Gear Isuka only.
+                    </p>
+                </div>
+            </div>
+            <div class="character" id="sectionHappy">
+                <div class="character-inner">
+                    <h1 class="name">Happy Chaos</h1>
+                    <img src="Images/happyChaos.jpg" alt="Happy Chaos">
+                    <p>
+                        Happy Chaos, or simply Chaos for short, is a mysterious character in the Guilty Gear series who
+                        discovered
+                        the Backyard
+                        and influenced the history of the world under various aliases. He assumed the name Happy Chaos
+                        during
+                        the
+                        events of
+                        Guilty Gear Xrd Rev 2, and properly debuted in Guilty Gear -Strive-.
+                    </p>
+                </div>
+            </div>
+            <div class="character" id="sectionLeo">
+                <div class="character-inner">
+                    <h1 class="name">Leo Whitefang</h1>
+                    <img src="Images/leoWhitefang.jpg" alt="Leo Whitefang">
+                    <p>
+                        Leo Whitefang is one of the three kings of the United Kingdoms of Illyria, governing over twenty
+                        nations
+                        in the European
+                        and Asian regions of Illyria. Leo used to be a high-ranking officer in the Sacred Order of the
+                        Holy
+                        Knight during the
+                        Crusades which spanned over a hundred years. Despite carrying a rather boisterous attitude and
+                        even
+                        being somewhat
+                        narcissistic, Leo actually suffers from survivor's guilt deep down in his heart. During the war
+                        period,
+                        Leo and the
+                        command that he led were responsible for leading the charge to secure an important island on the
+                        Order's
+                        behalf. He and
+                        his unit faced what appeared to be certain death, but his leadership allowed them to escape and
+                        succeed
+                        in their
+                        endeavour. Seeing so many deaths of the soldiers under his command, Leo felt that he was
+                        responsible
+                        and
+                        felt immense
+                        guilt for leading them into this.
+                    </p>
+                    <p>
+                        On the surface, Leo's theme, "Hellfire" is very empowering and energetic, most fitting to his
+                        seemingly
+                        loud and
+                        arrogant personality. However, the lyrics of the song tells a vastly different story. Throughout
+                        the
+                        song, the line that
+                        appears most often is "I faked out, call me out! Who can say that?". Leo sees himself as a
+                        coward
+                        waiting for someone to
+                        call him out. Another line "We're going home alive, liar, liar. Forgive me, just get me out of
+                        this
+                        hell!" depicts Leo's
+                        imagination of his past subordinates calling him a liar because he told them that they were
+                        gonna
+                        survive. He felt
+                        unbearably guilty over the death of his comrades, to a point that he is almost suicidal, as seen
+                        in
+                        the
+                        last line "get
+                        me out of this hell".
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="border"></div>
-    <div class="main">
-        <div class="quote">
-            <h2>
-                "Mankind knew that they cannot change society, so instead of reflecting on themselves, they blamed the
-                Beasts."
-            </h2>
-        </div>
-        <div class="character" id="sectionSol">
-            <div class="character-inner">
-                <h1 class="name">Sol Badguy</h1>
-                <img src="Images/solBadguy.png" alt="Sol Badguy">
-                <p>
-                    Sol Badguy is the protagonist of the Guilty Gear series and Ky Kiske's rival. He is an aloof and
-                    brash
-                    bounty hunter of
-                    immense skill on a quest to find and eliminate all Gears and their creator, That Man. For a short
-                    time,
-                    Sol
-                    was also a
-                    member of the Sacred Order of Holy Knights during the Crusades, known as "Order-Sol".
-                </p>
-                <p>
-                    Sol has an Awakened form, who is an unlockable boss character in Guilty Gear Isuka only.
-                </p>
-            </div>
-        </div>
-        <div class="character" id="sectionKy">
-            <div class="character-inner">
-                <h1 class="name">Ky Kiske</h1>
-                <img src="Images/kyKiske.jpg" alt="Ky Kiske">
-                <p>
-                    Ky Kiske is the deuteragonist of the Guilty Gear series and Sol Badguy's rival. A former member of
-                    the
-                    Sacred Order of
-                    Holy Knights during the Crusades, Ky is a charismatic swordsman who possesses a strong sense of
-                    justice
-                    and
-                    piety, which
-                    sustain and guide him through all manner of shaking uncertainties.
-                </p>
-                <p>
-                    Ky has an Awakened form, who is an unlockable boss character in Guilty Gear Isuka only.
-                </p>
-            </div>
-        </div>
-        <div class="character" id="sectionHappy">
-            <div class="character-inner">
-                <h1 class="name">Happy Chaos</h1>
-                <img src="Images/happyChaos.jpg" alt="Happy Chaos">
-                <p>
-                    Happy Chaos, or simply Chaos for short, is a mysterious character in the Guilty Gear series who
-                    discovered
-                    the Backyard
-                    and influenced the history of the world under various aliases. He assumed the name Happy Chaos
-                    during
-                    the
-                    events of
-                    Guilty Gear Xrd Rev 2, and properly debuted in Guilty Gear -Strive-.
-                </p>
-            </div>
-        </div>
-        <div class="character" id="sectionLeo">
-            <div class="character-inner">
-                <h1 class="name">Leo Whitefang</h1>
-                <img src="Images/leoWhitefang.jpg" alt="Leo Whitefang">
-                <p>
-                    Leo Whitefang is one of the three kings of the United Kingdoms of Illyria, governing over twenty
-                    nations
-                    in the European
-                    and Asian regions of Illyria. Leo used to be a high-ranking officer in the Sacred Order of the Holy
-                    Knight during the
-                    Crusades which spanned over a hundred years. Despite carrying a rather boisterous attitude and even
-                    being somewhat
-                    narcissistic, Leo actually suffers from survivor's guilt deep down in his heart. During the war
-                    period,
-                    Leo and the
-                    command that he led were responsible for leading the charge to secure an important island on the
-                    Order's
-                    behalf. He and
-                    his unit faced what appeared to be certain death, but his leadership allowed them to escape and
-                    succeed
-                    in their
-                    endeavour. Seeing so many deaths of the soldiers under his command, Leo felt that he was responsible
-                    and
-                    felt immense
-                    guilt for leading them into this.
-                </p>
-                <p>
-                    On the surface, Leo's theme, "Hellfire" is very empowering and energetic, most fitting to his
-                    seemingly
-                    loud and
-                    arrogant personality. However, the lyrics of the song tells a vastly different story. Throughout the
-                    song, the line that
-                    appears most often is "I faked out, call me out! Who can say that?". Leo sees himself as a coward
-                    waiting for someone to
-                    call him out. Another line "We're going home alive, liar, liar. Forgive me, just get me out of this
-                    hell!" depicts Leo's
-                    imagination of his past subordinates calling him a liar because he told them that they were gonna
-                    survive. He felt
-                    unbearably guilty over the death of his comrades, to a point that he is almost suicidal, as seen in
-                    the
-                    last line "get
-                    me out of this hell".
-                </p>
-            </div>
-        </div>
+    <div class="bottombar">
+        <div class="bottomBorder"></div>
+        <button class="optionBtn" id="optionBtn"></button>
     </div>
     <script src="ggst.js"></script>
 </body>

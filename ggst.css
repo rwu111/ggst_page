@@ -3,6 +3,10 @@
 }
 
 body {
+    display: block;
+}
+
+.computerElementsContainer {
     display: flex;
 }
 
@@ -270,7 +274,7 @@ button {
 
 .controls button {
     background: none;
-    color: #afb2b6;
+    background-color: #22242a;
     font-size: 1.2em;
     cursor: pointer;
     padding: 5px;
@@ -428,3 +432,46 @@ input:checked+.slider:before {
     object-fit: cover;
     margin: 0;
 }
+
+.bottomBar {
+    bottom: 200px;
+    height: 500px;
+    text-align: center;
+    position: fixed;
+    z-index: 1000;
+}
+
+.bottomBorder {
+    display: block;
+    margin-top: 0px;
+    height: 2px;
+    width: auto;
+    background-color: #a88620;
+}
+
+.optionBtn {
+    background-color: #22242a;
+    background-image: url("Images/optionBtn.svg");
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+    aspect-ratio: 1/1;
+}
+
+/*
+@media (max-width: 999px) and (pointer: coarse) and (hover: none) {
+    .optionBtn {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 1000px) {
+    .optionBtn {
+        display: block;
+        margin-right: 2000px;
+    }
+}
+    */
