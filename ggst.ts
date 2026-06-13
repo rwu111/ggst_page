@@ -24,9 +24,9 @@ const sidebar = document.getElementById("")
 function callSidebar() {
     if (!sidebar) return;
     if (sidebar.style.display == "none") {
-        sidebar.classList.add("smallScreenOpened");
+        sidebar.style.display = "block";
     } else {
-        sidebar.classList.remove("smallScreenClosed");
+        sidebar.style.display = "none";
     }
 }
 

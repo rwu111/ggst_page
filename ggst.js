@@ -3,6 +3,7 @@ const solBtn = document.getElementById("solBtn");
 const kyBtn = document.getElementById("kyBtn");
 const happyBtn = document.getElementById("happyBtn");
 const leoBtn = document.getElementById("leoBtn");
+const optionBtn = document.getElementById("optionBtn");
 if (solBtn) {
     solBtn.addEventListener("click", () => switchCharacter("sectionSol"));
 }
@@ -15,6 +16,9 @@ if (happyBtn) {
 if (leoBtn) {
     leoBtn.addEventListener("click", () => switchCharacter("sectionLeo"));
 }
+if (optionBtn) {
+    optionBtn.addEventListener("click", () => callSidebar());
+}
 let currentCharacter = null;
 // Music Player Variables
 let currentSongIndex = 0;
@@ -22,6 +26,17 @@ let audio = new Audio();
 let cover = document.getElementById("songCover");
 let isPlaying = false;
 let syncEnabled = true;
+const sidebar = document.getElementById("");
+function callSidebar() {
+    if (!sidebar)
+        return;
+    if (sidebar.style.display == "none") {
+        sidebar.style.display = "block";
+    }
+    else {
+        sidebar.style.display = "none";
+    }
+}
 // Song data
 const songs = [
     {
