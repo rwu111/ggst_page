@@ -27,17 +27,19 @@ const sidebarOverlay = document.getElementById("sidebarOverlay");
 function toggleSidebar(sidebarToggled) {
     if (!sidebar || !sidebarOverlay || !border)
         return;
-    if (sidebarToggled) {
+    if (!sidebarToggled) {
         sidebar.classList.remove("smallScreenClosed");
         sidebar.classList.add("smallScreenOpened");
         sidebarOverlay.classList.add("active");
         border.style.display = "inline";
+        sidebarToggled = true;
     }
     else {
         sidebar.classList.remove("smallScreenOpened");
         sidebar.classList.add("smallScreenClosed");
         sidebarOverlay.classList.remove("active");
         border.style.display = "none";
+        sidebarToggled = false;
     }
 }
 let currentCharacter = null;
