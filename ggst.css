@@ -486,6 +486,8 @@ input:checked+.slider:before {
 
     .sidebar {
         position: fixed;
+        background: #1c1f26;
+        top: 0;
         width: 85%;
         height: 100%;
         z-index: 2000;
@@ -502,7 +504,7 @@ input:checked+.slider:before {
         opacity: 0;
         z-index: 1999;
         visibility: hidden;
-        transition: opacity 0.2s ease-in visibility 0.2s ease-in;
+        transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
     }
 
     .sidebarOverlay.active {

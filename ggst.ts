@@ -16,15 +16,17 @@ const sidebar = document.getElementById("sidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
 function toggleSidebar() {
     if (!sidebar || !sidebarOverlay) return;
-    const isOpen = sidebar.classList.contains("smallScreenOpend");
-    if (isOpen) {
+    const isOpen = sidebar.classList.contains("smallScreenOpened");
+    if (!isOpen) {
         sidebar.classList.remove("smallScreenClosed");
         sidebar.classList.add("smallScreenOpened");
         sidebarOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
     } else {
         sidebar.classList.remove("smallScreenOpened");
         sidebar.classList.add("smallScreenClosed");
         sidebarOverlay.classList.remove("active");
+        document.body.style.overflow = "";
     }
     if (border) border.style.display = "none";
 }
