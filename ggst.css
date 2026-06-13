@@ -461,15 +461,26 @@ input:checked+.slider:before {
 
 @media (max-width: 999px) and (pointer: coarse) and (hover: none) {
     .bottomBar {
-        display: none;
+        display: block;
     }
 
+    /*
     .bottomBorder {
         display: none;
     }
 
     .optionBtn {
         display: none;
+    }
+        */
+
+    .sidebar.smallScreenClosed {
+        display: none;
+    }
+
+    .sidebar.smallScreenOpened {
+        display: block;
+        width: 90%;
     }
 }
 
@@ -478,6 +489,7 @@ input:checked+.slider:before {
         display: none;
     }
 
+    /*
     .bottomBorder {
         display: none;
     }
@@ -485,4 +497,5 @@ input:checked+.slider:before {
     .optionBtn {
         display: none;
     }
+        */
 }
