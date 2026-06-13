@@ -485,6 +485,10 @@ input:checked+.slider:before {
     .sidebar.smallScreenClosed {
         display: none;
     }
+
+    img {
+        width: 80%;
+    }
 }
 
 @media screen and (min-width: 1000px) {
