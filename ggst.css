@@ -473,6 +473,10 @@ input:checked+.slider:before {
         display: block;
     }
 
+    .sidebar {
+        display: none;
+    }
+
     /*
     .bottomBorder {
         display: none;
