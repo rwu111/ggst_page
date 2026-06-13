@@ -446,6 +446,8 @@ input:checked+.slider:before {
 .bottomBar {
     bottom: 0px;
     width: 100%;
+    background-color: #22242a;
+    opacity: 1;
     text-align: center;
     position: fixed;
     z-index: 1000;
