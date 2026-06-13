@@ -483,6 +483,7 @@ input:checked+.slider:before {
         display: block;
         position: fixed;
         z-index: 2001;
+        border: 5px solid red;
     }
 
     .sidebar {
