@@ -463,10 +463,26 @@ input:checked+.slider:before {
     .bottomBar {
         display: none;
     }
+
+    .bottomBorder {
+        display: none;
+    }
+
+    .optionBtn {
+        display: none;
+    }
 }
 
-@media (min-height: 1000px) {
+@media (min-width: 1000px) {
     .bottomBar {
+        display: none;
+    }
+
+    .bottomBorder {
+        display: none;
+    }
+
+    .optionBtn {
         display: none;
     }
 }
