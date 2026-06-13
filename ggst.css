@@ -20,6 +20,15 @@ body {
     font-size: larger;
 }
 
+.sidebar.smallScreenClosed {
+    display: none;
+}
+
+.sidebar.smallScreenOpened {
+    display: block;
+    width: 90%;
+}
+
 .note {
     font-size: 0.8em;
     display: block;
@@ -473,15 +482,6 @@ input:checked+.slider:before {
         display: none;
     }
         */
-
-    .sidebar.smallScreenClosed {
-        display: none;
-    }
-
-    .sidebar.smallScreenOpened {
-        display: block;
-        width: 90%;
-    }
 }
 
 @media (min-width: 1000px) {
