@@ -17,30 +17,28 @@ if (leoBtn) {
     leoBtn.addEventListener("click", () => switchCharacter("sectionLeo"));
 }
 if (optionBtn) {
-    optionBtn.addEventListener("click", () => toggleSidebar(sidebarToggled));
+    optionBtn.addEventListener("click", () => toggleSidebar());
 }
 // phone port sidebar toggle
-let sidebarToggled = false;
 const border = document.getElementById("border");
 const sidebar = document.getElementById("sidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
-function toggleSidebar(sidebarToggled) {
-    if (!sidebar || !sidebarOverlay || !border)
+function toggleSidebar() {
+    if (!sidebar || !sidebarOverlay)
         return;
-    if (!sidebarToggled) {
+    const isOpen = sidebar.classList.contains("smallScreenOpend");
+    if (isOpen) {
         sidebar.classList.remove("smallScreenClosed");
         sidebar.classList.add("smallScreenOpened");
         sidebarOverlay.classList.add("active");
-        border.style.display = "inline";
-        sidebarToggled = true;
     }
     else {
         sidebar.classList.remove("smallScreenOpened");
         sidebar.classList.add("smallScreenClosed");
         sidebarOverlay.classList.remove("active");
-        border.style.display = "none";
-        sidebarToggled = false;
     }
+    if (border)
+        border.style.display = "none";
 }
 let currentCharacter = null;
 // Music Player Variables

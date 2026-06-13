@@ -8,28 +8,25 @@ if (solBtn) { solBtn.addEventListener("click", () => switchCharacter("sectionSol
 if (kyBtn) { kyBtn.addEventListener("click", () => switchCharacter("sectionKy")); }
 if (happyBtn) { happyBtn.addEventListener("click", () => switchCharacter("sectionHappy")); }
 if (leoBtn) { leoBtn.addEventListener("click", () => switchCharacter("sectionLeo")); }
-if (optionBtn) { optionBtn.addEventListener("click", () => toggleSidebar(sidebarToggled)); }
+if (optionBtn) { optionBtn.addEventListener("click", () => toggleSidebar()); }
 
 // phone port sidebar toggle
-let sidebarToggled = false;
 const border = document.getElementById("border");
 const sidebar = document.getElementById("sidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
-function toggleSidebar(sidebarToggled: Boolean) {
-    if (!sidebar || !sidebarOverlay || !border) return;
-    if (!sidebarToggled) {
+function toggleSidebar() {
+    if (!sidebar || !sidebarOverlay) return;
+    const isOpen = sidebar.classList.contains("smallScreenOpend");
+    if (isOpen) {
         sidebar.classList.remove("smallScreenClosed");
         sidebar.classList.add("smallScreenOpened");
         sidebarOverlay.classList.add("active");
-        border.style.display = "inline";
-        sidebarToggled = true;
     } else {
         sidebar.classList.remove("smallScreenOpened");
         sidebar.classList.add("smallScreenClosed");
         sidebarOverlay.classList.remove("active");
-        border.style.display = "none";
-        sidebarToggled = false;
     }
+    if (border) border.style.display = "none";
 }
 
 let currentCharacter: HTMLElement | null = null;
