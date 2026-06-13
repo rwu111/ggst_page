@@ -465,7 +465,7 @@ input:checked+.slider:before {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-height: 1000px) {
     .bottomBar {
         display: none;
     }
