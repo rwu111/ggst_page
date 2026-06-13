@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Rounded white button background -->
+  <rect x="0" y="0" width="80" height="80" rx="20" fill="#1c1f25"/>
+
+  <!-- X / Cross (two diagonal lines) -->
+  <line x1="26" y1="26" x2="54" y2="54" stroke="#a28539" stroke-width="7" stroke-linecap="round"/>
+  <line x1="54" y1="26" x2="26" y2="54" stroke="#a28539" stroke-width="7" stroke-linecap="round"/>
+</svg>

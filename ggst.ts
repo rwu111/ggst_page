@@ -8,7 +8,27 @@ if (solBtn) { solBtn.addEventListener("click", () => switchCharacter("sectionSol
 if (kyBtn) { kyBtn.addEventListener("click", () => switchCharacter("sectionKy")); }
 if (happyBtn) { happyBtn.addEventListener("click", () => switchCharacter("sectionHappy")); }
 if (leoBtn) { leoBtn.addEventListener("click", () => switchCharacter("sectionLeo")); }
-if (optionBtn) { optionBtn.addEventListener("click", () => callSidebar()); }
+if (optionBtn) { optionBtn.addEventListener("click", () => toggleSidebar(sidebarToggled)); }
+
+// phone port sidebar toggle
+let sidebarToggled = false;
+const border = document.getElementById("border");
+const sidebar = document.getElementById("sidebar");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+function toggleSidebar(sidebarToggled: Boolean) {
+    if (!sidebar || !sidebarOverlay || !border) return;
+    if (sidebarToggled) {
+        sidebar.classList.remove("smallScreenClosed");
+        sidebar.classList.add("smallScreenOpened");
+        sidebarOverlay.classList.add("active");
+        border.style.display = "inline";
+    } else {
+        sidebar.classList.remove("smallScreenOpened");
+        sidebar.classList.add("smallScreenClosed");
+        sidebarOverlay.classList.remove("active");
+        border.style.display = "none";
+    }
+}
 
 let currentCharacter: HTMLElement | null = null;
 
@@ -18,20 +38,6 @@ let audio = new Audio();
 let cover = document.getElementById("songCover");
 let isPlaying = false;
 let syncEnabled = true;
-
-const sidebar = document.getElementById("sidebar");
-
-function callSidebar() {
-    if (!sidebar) return;
-    if (sidebar.classList.contains("smallScreenClosed")) {
-        sidebar.classList.remove("smallScreenClosed");
-        sidebar.classList.add("smallScreenOpened");
-    } else {
-        sidebar.classList.remove("smallScreenOpened");
-        sidebar.classList.add("smallScreenClosed");
-    }
-
-}
 
 // Song data
 const songs = [

@@ -29,6 +29,16 @@ body {
     width: 90%;
 }
 
+.closeSidebarBtn {
+    background-image: url("Images/closeSidebarBtn.svg");
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    transform: scale(0.375);
+}
+
 .note {
     font-size: 0.8em;
     display: block;
@@ -480,9 +490,44 @@ input:checked+.slider:before {
 
     .sidebar {
         display: none;
+        position: fixed;
+        width: 85%;
+        height: 100%;
+        z-index: 2000;
+        padding: 20px;
+    }
+
+    .sidebarOverlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        z-index: 1999;
+        transition: opacity 0.3s ease-in;
+    }
+
+    .sidebarOverlay.active {
+        display: block;
+        opacity: 1;
     }
 
     .sidebar.smallScreenClosed {
+        display: none;
+    }
+
+    .computerElementsContainer {
+        display: block;
+    }
+
+    .main {
+        display: block;
+        width: 100%;
+        padding-bottom: 82px;
+    }
+
+    .border {
         display: none;
     }
 
