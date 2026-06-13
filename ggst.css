@@ -229,9 +229,20 @@ button {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-.vinyl-container:hover .music-popup {
+.music-popup.active {
     display: block;
     opacity: 1;
+}
+
+.music-popup::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #a88620 transparent transparent transparent;
 }
 
 .music-popup::after {
@@ -483,7 +494,6 @@ input:checked+.slider:before {
         display: block;
         position: fixed;
         z-index: 2001;
-        /*wtf*/
     }
 
     .sidebar {

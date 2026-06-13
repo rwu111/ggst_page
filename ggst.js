@@ -88,6 +88,20 @@ const currentTimeEl = document.getElementById("currentTime");
 const durationEl = document.getElementById("duration");
 const songNameEl = document.getElementById("songName");
 const syncToggle = document.getElementById("syncToggle");
+const vinylContainer = document.querySelector(".vinyl-container");
+const musicPopup = document.querySelector(".music-popup");
+if (vinylContainer && musicPopup) {
+    vinylContainer.addEventListener("click", (e) => {
+        e.stopPropagation();
+        musicPopup.classList.toggle("active");
+    });
+    // Optional: Close popup when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!vinylContainer.contains(e.target) && musicPopup.classList.contains("active")) {
+            musicPopup.classList.remove("active");
+        }
+    });
+}
 // Music Player Functions
 function loadSong(index) {
     const song = songs[index];
