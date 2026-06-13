@@ -443,8 +443,9 @@ input:checked+.slider:before {
 }
 
 .bottomBar {
-    bottom: 200px;
-    height: 500px;
+    bottom: 0px;
+    height: 300px;
+    width: 100%;
     text-align: center;
     position: fixed;
     z-index: 1000;
@@ -454,7 +455,7 @@ input:checked+.slider:before {
     display: block;
     margin-top: 0px;
     height: 2px;
-    width: auto;
+    width: 100%;
     background-color: #a88620;
 }
 
@@ -466,6 +467,7 @@ input:checked+.slider:before {
     margin-right: auto;
     height: 80px;
     aspect-ratio: 1/1;
+    transform: scale(0.75);
 }
 
 @media screen and (max-width: 999px) and (pointer: coarse) and (hover: none) {
