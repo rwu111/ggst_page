@@ -468,7 +468,7 @@ input:checked+.slider:before {
     aspect-ratio: 1/1;
 }
 
-@media (max-width: 999px) and (pointer: coarse) and (hover: none) {
+@media screen and (max-width: 999px) and (pointer: coarse) and (hover: none) {
     .bottomBar {
         display: block;
     }
@@ -488,7 +488,7 @@ input:checked+.slider:before {
         */
 }
 
-@media (min-width: 1000px) {
+@media screen and (min-width: 1000px) {
     .bottomBar {
         display: none;
     }
