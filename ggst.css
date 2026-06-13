@@ -489,7 +489,6 @@ input:checked+.slider:before {
         display: none;
     }
 
-    /*
     .bottomBorder {
         display: none;
     }
@@ -497,5 +496,4 @@ input:checked+.slider:before {
     .optionBtn {
         display: none;
     }
-        */
 }
