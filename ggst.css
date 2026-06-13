@@ -511,6 +511,7 @@ input:checked+.slider:before {
         z-index: 1999;
         visibility: hidden;
         transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
+        pointer-events: none;
     }
 
     .sidebarOverlay.active {
