@@ -2,11 +2,13 @@ const solBtn = document.getElementById("solBtn");
 const kyBtn = document.getElementById("kyBtn");
 const happyBtn = document.getElementById("happyBtn");
 const leoBtn = document.getElementById("leoBtn");
+const optionBtn = document.getElementById("optionBtn");
 
 if (solBtn) { solBtn.addEventListener("click", () => switchCharacter("sectionSol")); }
 if (kyBtn) { kyBtn.addEventListener("click", () => switchCharacter("sectionKy")); }
 if (happyBtn) { happyBtn.addEventListener("click", () => switchCharacter("sectionHappy")); }
 if (leoBtn) { leoBtn.addEventListener("click", () => switchCharacter("sectionLeo")); }
+if (optionBtn) { optionBtn.addEventListener("click", () => callSidebar()); }
 
 let currentCharacter: HTMLElement | null = null;
 
@@ -16,6 +18,17 @@ let audio = new Audio();
 let cover = document.getElementById("songCover");
 let isPlaying = false;
 let syncEnabled = true;
+
+const sidebar = document.getElementById("")
+
+function callSidebar() {
+    if (!sidebar) return;
+    if (sidebar.style.display == "none") {
+        sidebar.classList.add("smallScreenOpened");
+    } else {
+        sidebar.classList.remove("smallScreenClosed");
+    }
+}
 
 // Song data
 const songs = [
