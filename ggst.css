@@ -482,6 +482,7 @@ input:checked+.slider:before {
     .bottomBar {
         display: block;
         position: fixed;
+        z-index: 2001;
     }
 
     .sidebar {
