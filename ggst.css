@@ -461,7 +461,7 @@ input:checked+.slider:before {
 
 @media (max-width: 999px) and (pointer: coarse) and (hover: none) {
     .bottomBar {
-        display: block;
+        display: none;
     }
 }
 
