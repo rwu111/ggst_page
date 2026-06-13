@@ -50,6 +50,7 @@ em {
 
 .main {
     padding: 15px;
+    padding-bottom: 80px;
 }
 
 .quote {
@@ -444,7 +445,6 @@ input:checked+.slider:before {
 
 .bottomBar {
     bottom: 0px;
-    height: 300px;
     width: 100%;
     text-align: center;
     position: fixed;
@@ -477,6 +477,10 @@ input:checked+.slider:before {
     }
 
     .sidebar {
+        display: none;
+    }
+
+    .sidebar.smallScreenClosed {
         display: none;
     }
 

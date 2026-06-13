@@ -19,15 +19,18 @@ let cover = document.getElementById("songCover");
 let isPlaying = false;
 let syncEnabled = true;
 
-const sidebar = document.getElementById("")
+const sidebar = document.getElementById("sidebar");
 
 function callSidebar() {
     if (!sidebar) return;
-    if (sidebar.style.display == "none") {
-        sidebar.style.display = "block";
+    if (sidebar.classList.contains("smallScreenClosed")) {
+        sidebar.classList.remove("smallScreenClosed");
+        sidebar.classList.add("smallScreenOpened");
     } else {
-        sidebar.style.display = "none";
+        sidebar.classList.remove("smallScreenOpened");
+        sidebar.classList.add("smallScreenClosed");
     }
+
 }
 
 // Song data
@@ -249,6 +252,12 @@ function main() {
     // Load first song but don't autoplay
     currentSongIndex = 0;
     loadSong(0);
+
+    if (sidebar) {
+        if (window.matchMedia("(max-width: 999px) and (pointer: coarse)").matches) {
+            sidebar.classList.add("smallScreenClosed");
+        }
+    }
 }
 
 document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", main) : main();
